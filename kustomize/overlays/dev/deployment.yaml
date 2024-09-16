@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world
+  labels: 
+    environment: dev
+spec:
+  replicas: 2 # Update the replica count to 2
+  template:
+    metadata:
+      labels:
+        environment: dev
+    spec:
+      containers:
+      - name: hello-world

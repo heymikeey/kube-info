@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-info-service
+spec:
+  selector:
+    app: kube-info-app
+  ports:
+    - protocol: TCP
+      port: 7000
+      targetPort: 5000
+  type: LoadBalancer

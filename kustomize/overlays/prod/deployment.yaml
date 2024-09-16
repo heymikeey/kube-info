@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-info-deployment
+  labels: 
+    environment: prod
+spec:
+  replicas: 4 # Update the replica count to 2
+  template:
+    metadata:
+      labels:
+        environment: prod
+    spec:
+      containers:
+      - name: kube-info-container
