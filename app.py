@@ -3,7 +3,7 @@ import os
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/kubeinfo')
 def index():
     pod_name = os.getenv('POD_NAME', 'Unknown')
     node_name = os.getenv('NODE_NAME', 'Unknown')
