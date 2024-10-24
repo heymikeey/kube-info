@@ -5,8 +5,8 @@ namespace: kubeinfo-dev
 resources:
 - ../../base
 
-# patches:
-# - path: deployment.yaml
+patches:
+- path: version.yaml
 # - target:
 #     kind: Service
 #     name: kube-info-service
