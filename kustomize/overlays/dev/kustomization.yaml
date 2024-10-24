@@ -4,15 +4,15 @@ kind: Kustomization
 resources:
 - ../../base
 
-patches:
-- path: deployment.yaml
-- target:
-    kind: Service
-    name: kube-info-service
-  patch: |
-    - op: replace
-      path: /spec/ports/0/port
-      value: 7000
+# patches:
+# - path: deployment.yaml
+# - target:
+#     kind: Service
+#     name: kube-info-service
+#   patch: |
+#     - op: replace
+#       path: /spec/ports/0/port
+#       value: 7000
 
 nameSuffix: "-dev"
 

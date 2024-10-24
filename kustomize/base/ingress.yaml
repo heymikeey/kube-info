@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kubeinfo-ingress
+  annotations:
+      cert-manager.io/cluster-issuer: mjlab-cert
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - mjlab.servehttp.com
+      secretName: mjlab.servehttp.com-tls
+  rules:
+    - host: mjlab.servehttp.com
+      http:
+        paths:
+          - path: /kubeinfo
+            pathType: Prefix
+            backend:
+              service:
+                name: kubeinfo
+                port:
+                  number: 80

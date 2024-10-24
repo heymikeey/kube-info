@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kube-info-deployment
+  name: kubeinfo-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: kube-info-app
+      app: kubeinfo
   template:
     metadata:
       labels:
-        app: kube-info-app
+        app: kubeinfo
     spec:
       containers:
-        - name: kube-info-container
+        - name: kubeinfo-container
           image: ghcr.io/heymikeey/kube-info/kube-info:latest
           ports:
             - containerPort: 5000
@@ -35,4 +35,4 @@ spec:
                 fieldRef:
                   fieldPath: status.podIP
             - name: CLUSTER_NAME
-              value: "Your-Cluster-Name"
+              value: "CaaS"
