@@ -10,6 +10,7 @@ def index():
     namespace = os.getenv('NAMESPACE', 'Unknown')
     pod_ip = os.getenv('POD_IP', 'Unknown')
     cluster_name = os.getenv('CLUSTER_NAME', 'Unknown')
+    version = os.getenv('IMAGE_VERSION', 'Unknown')
 
     return f"""
     <html>
@@ -36,6 +37,7 @@ def index():
             </style>
         </head>
         <body>
+                <p class="version"><em>Image Version: {version}</em></p>
                 <h1>Kubernetes Pod Info</h1>
                 <p><strong>Pod Name:</strong> {pod_name}</p>
                 <p><strong>Node Name:</strong> {node_name}</p>
