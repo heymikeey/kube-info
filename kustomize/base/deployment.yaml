@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: kubeinfo-container
-          image: ghcr.io/heymikeey/kube-info/kube-info:2.0.0
+          image: ghcr.io/heymikeey/kube-info/kube-info:v2.0.0
           ports:
             - containerPort: 5000
           env:
