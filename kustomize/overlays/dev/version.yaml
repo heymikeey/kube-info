@@ -4,6 +4,9 @@ kind: Deployment
 metadata:
   name: kubeinfo-deployment
 spec:
+  selector:
+    matchLabels:
+      app: kubeinfo
   template:
     metadata:
       labels:
