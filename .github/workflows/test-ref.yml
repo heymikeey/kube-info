@@ -1,0 +1,18 @@
+name: Build and Push Docker Image to GHCR
+
+on:
+  workflow_dispatch
+
+permissions:
+  packages: write
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build and tag Docker image
+        run: |
+          echo "Github ref_name: " ${{ github.ref_name }}
+          gh_ref=${{ github.ref_name }}
