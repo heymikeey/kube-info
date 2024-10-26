@@ -13,19 +13,13 @@ kind: Ingress
 metadata:
   name: kubeinfo-ingress
   annotations:
-      cert-manager.io/cluster-issuer: mjlab-cert
-      traefik.ingress.kubernetes.io/router.middlewares: kubeinfo-dev-strip-prefix@kubernetescrd
+      traefik.ingress.kubernetes.io/router.middlewares: kubeinfo-dev-strip-prefix-dev@kubernetescrd
 spec:
-  ingressClassName: traefik
-  tls:
-    - hosts:
-        - mjlab.servehttp.com
-      secretName: mjlab.servehttp.com-tls
   rules:
     - host: mjlab.servehttp.com
       http:
         paths:
-          - path: /kubeinfo
+          - path: /dev/kubeinfo
             pathType: Prefix
             backend:
               service:
