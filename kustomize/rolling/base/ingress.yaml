@@ -1,0 +1,34 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: strip-prefix
+spec:
+  stripPrefix:
+    prefixes:
+      - "/dev"
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kubeinfo-rolling
+  annotations:
+      cert-manager.io/cluster-issuer: mjlab-cert
+      traefik.ingress.kubernetes.io/router.middlewares: kubeinfo-dev-strip-prefix@kubernetescrd
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - mjlab.servehttp.com
+      secretName: mjlab.servehttp.com-tls
+  rules:
+    - host: mjlab.servehttp.com
+      http:
+        paths:
+          - path: /kubeinfo
+            pathType: Prefix
+            backend:
+              service:
+                name: kubeinfo-rolling
+                port:
+                  number: 80

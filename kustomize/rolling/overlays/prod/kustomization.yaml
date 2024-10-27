@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: kubeinfo-prod
+
+resources:
+- ../../base
+
+patches:
+- path: version.yaml
+- path: ingress.yaml
+
+nameSuffix: "-prod"
+
