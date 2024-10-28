@@ -1,0 +1,12 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: kubeinfo-bg
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+      - name: kubeinfo-container
+        image: ghcr.io/heymikeey/kube-info/kube-info:v2.2.0
