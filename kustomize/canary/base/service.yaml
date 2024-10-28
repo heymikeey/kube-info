@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubeinfo-canary
+spec:
+  selector:
+    app: kubeinfo
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
