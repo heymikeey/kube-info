@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
       - name: kubeinfo-container
-        image: ghcr.io/heymikeey/kube-info/kube-info:v2.2.0
+        image: ghcr.io/heymikeey/kube-info/kube-info:v2.1.0
